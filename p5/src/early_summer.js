@@ -12,18 +12,16 @@ function setup() {
     background(255);
     noStroke();
 
-    // gridSize = width / gridCount
-    gridSize = 1
+    gridSize = width / gridCount
 }
  
 function draw() {
     let marginCount = margin / gridSize
 
-    for (var y = marginCount; y < height - marginCount; y += gridPadding) {
-        for (var x = marginCount; x < width - marginCount; x += gridPadding) {
-            var hue = noise(x / noiseVal, y / noiseVal, zseed) * 100;
-            // fill(hue, 50, 80, 1);
-            fill(hue, 1);
+    for (var y = marginCount; y < gridCount - marginCount; y += gridPadding) {
+        for (var x = marginCount; x < gridCount - marginCount; x += gridPadding) {
+            var hue = noise(x / noiseVal, y / noiseVal, zseed) * 250;
+            fill(hue, 50, 80, 1);
             push()
             translate(x * gridSize + gridSize / 2, y * gridSize + gridSize / 2)
             ellipse(0, 0, gridSize, gridSize);
